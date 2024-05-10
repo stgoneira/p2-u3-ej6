@@ -14,6 +14,8 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.outlined.AddAPhoto
 import androidx.compose.material3.Button
@@ -89,9 +91,13 @@ fun CrearAvisoUI() {
     var titulo by remember{  mutableStateOf("") }
     var descripcion by remember{  mutableStateOf("") }
     var precio by remember{  mutableStateOf("0") }
+    val scrollState = rememberScrollState()
 
     Column(
-        modifier = Modifier.fillMaxSize().padding(horizontal = 50.dp),
+        modifier = Modifier
+            .fillMaxSize()
+            .padding(horizontal = 50.dp)
+            .verticalScroll(scrollState),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center
     ){
@@ -130,7 +136,10 @@ fun CrearAvisoUI() {
             )
         }
 
-        Box(modifier = Modifier.fillMaxWidth().height(150.dp).background(Color.LightGray))
+        Box(modifier = Modifier
+            .fillMaxWidth()
+            .height(150.dp)
+            .background(Color.LightGray))
 
         Spacer(modifier = Modifier.height(30.dp))
         Button(onClick = { /*TODO*/ }) {
