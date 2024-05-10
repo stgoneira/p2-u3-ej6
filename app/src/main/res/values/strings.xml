@@ -2,4 +2,9 @@
     <string name="app_name">IplAvisos</string>
     <string name="btn_buscar_avisos">Buscar Avisos</string>
     <string name="btn_crear_aviso">Crear Aviso</string>
+    <string name="agregar_foto">Agregar foto</string>
+    <string name="publicar">Publicar</string>
+    <string name="descripcion">Descripción</string>
+    <string name="titulo">Título</string>
+    <string name="precio">Precio</string>
 </resources>
