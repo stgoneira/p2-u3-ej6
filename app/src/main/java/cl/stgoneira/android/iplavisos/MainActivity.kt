@@ -15,6 +15,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import cl.stgoneira.android.iplavisos.ui.theme.IplavisosTheme
@@ -46,7 +47,7 @@ fun IplAvisosUI() {
     ) {
         // TITULO
         Text(
-            "IplAvisos",
+            stringResource(id = R.string.app_name),
             style = MaterialTheme.typography.titleLarge,
             modifier = Modifier.padding(top = 70.dp)
         )
@@ -57,13 +58,13 @@ fun IplAvisosUI() {
                 modifier = Modifier.width(200.dp),
                 onClick = { /*TODO*/ }
             ) {
-                Text("Buscar Avisos")
+                Text(stringResource(id = R.string.btn_buscar_avisos))
             }
             Button(
                 modifier = Modifier.width(200.dp),
                 onClick = { /*TODO*/ }
             ) {
-                Text("Publicar")
+                Text(stringResource(id = R.string.btn_crear_aviso))
             }
         }
 

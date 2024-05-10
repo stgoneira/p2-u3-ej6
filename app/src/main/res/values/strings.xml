@@ -1,3 +1,5 @@
 <resources>
-    <string name="app_name">Iplavisos</string>
+    <string name="app_name">IplAvisos</string>
+    <string name="btn_buscar_avisos">Buscar Avisos</string>
+    <string name="btn_crear_aviso">Crear Aviso</string>
 </resources>
