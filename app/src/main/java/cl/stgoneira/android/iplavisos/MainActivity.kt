@@ -18,6 +18,10 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavHostController
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
 import cl.stgoneira.android.iplavisos.ui.theme.IplavisosTheme
 
 class MainActivity : ComponentActivity() {
@@ -30,16 +34,57 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    IplAvisosUI()
+                    IplAvisosApp()
                 }
             }
         }
     }
 }
 
+@Composable
+fun IplAvisosApp(
+    navController: NavHostController = rememberNavController()
+) {
+    NavHost(
+        navController = navController
+        , startDestination = "inicio"
+    ) {
+        composable("inicio") {
+            InicioUI(
+                goToAvisos = { navController.navigate("avisos") },
+                goToCrearAviso = { navController.navigate("crearAviso") }
+            )
+        }
+
+        composable("avisos") {
+            AvisosUI()
+        }
+
+        composable("crearAviso") {
+            CrearAvisoUI()
+        }
+    }
+}
+
 @Preview(showSystemUi = true)
 @Composable
-fun IplAvisosUI() {
+fun CrearAvisoUI() {
+    Column {
+        Text("Crear Aviso")
+    }
+}
+
+@Composable
+fun AvisosUI() {
+    Text("TODO: Listado de Avisos")
+}
+
+//@Preview(showSystemUi = true)
+@Composable
+fun InicioUI(
+    goToAvisos:()->Unit = {},
+    goToCrearAviso:()->Unit = {},
+) {
     Column(
         modifier = Modifier.fillMaxSize(),
         verticalArrangement = Arrangement.SpaceBetween,
@@ -56,13 +101,13 @@ fun IplAvisosUI() {
         Column {
             Button(
                 modifier = Modifier.width(200.dp),
-                onClick = { /*TODO*/ }
+                onClick = { goToAvisos() }
             ) {
                 Text(stringResource(id = R.string.btn_buscar_avisos))
             }
             Button(
                 modifier = Modifier.width(200.dp),
-                onClick = { /*TODO*/ }
+                onClick = { goToCrearAviso() }
             ) {
                 Text(stringResource(id = R.string.btn_crear_aviso))
             }
