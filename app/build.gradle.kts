@@ -69,5 +69,15 @@ dependencies {
 
     // navegación
     implementation(libs.androidx.navigation.compose)
+
+    // Iconos adicionales
     implementation(libs.androidx.material.icons.extended)
+
+    // camerax
+    implementation(libs.androidx.camera.camera2)
+    implementation(libs.androidx.camera.view)
+    implementation(libs.androidx.camera.lifecycle)
+
+    // coil
+    implementation(libs.io.coil.compose)
 }
